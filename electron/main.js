@@ -1,12 +1,12 @@
-const { app, BrowserWindow, screen } = require('electron');
-const path = require('path');
+// eslint-disable-next-line no-undef
+const {app, BrowserWindow, screen} = require('electron');
 
 let mainWindow;
 
 function createWindow() {
     const primaryDisplay = screen.getPrimaryDisplay();
 
-    const { width, height } = primaryDisplay.workAreaSize;
+    const {width, height} = primaryDisplay.workAreaSize;
 
     mainWindow = new BrowserWindow({
         width: width,
@@ -29,9 +29,7 @@ function createWindow() {
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+    app.quit();
 });
 
 app.on('activate', () => {
